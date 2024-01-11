@@ -92,7 +92,8 @@ public enum Paradise {
         new BanAllCommand(),
         new FetchAllCommand(),
         new FakeBroadcast(),
-        new CopyBroadcastCommand()
+        new CopyBroadcastCommand(),
+        new BungeeDumpCommand()
     );
 
     exploitManager = new ExploitManager(

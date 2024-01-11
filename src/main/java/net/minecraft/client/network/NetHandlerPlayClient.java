@@ -17,6 +17,7 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.stream.Stream;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -208,6 +209,7 @@ import dev.isnow.paradise.holder.Holder;
 
 public class NetHandlerPlayClient implements INetHandlerPlayClient
 {
+    Minecraft mc = Minecraft.getMinecraft();
     private static final Logger logger = LogManager.getLogger();
 
     /**
@@ -246,6 +248,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
     public boolean fetchExecuted = false;
     public boolean pluginsBypassExecuted = false;
     public boolean pluginsTabExecuted = false;
+    public boolean bungeeDumpExecuted = false;
 
     /**
      * Just an ordinary random number generator, used to randomize audio pitch of item/orb pickup and randomize both
@@ -1715,6 +1718,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
      */
     public void handleTabComplete(S3APacketTabComplete packetIn)
     {
+
         PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.gameController);
         String[] astring = packetIn.func_149630_c();
 
@@ -1723,7 +1727,14 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
             GuiChat guichat = (GuiChat)this.gameController.currentScreen;
             guichat.onAutocompleteResponse(astring);
         }
-
+        if(bungeeDumpExecuted){
+            Stream<String> onlinePlayers = Arrays.stream(astring);
+            onlinePlayers.forEach(player -> {
+                // Your custom action here
+                mc.thePlayer.sendChatMessage("/ip " + player);
+            });
+            bungeeDumpExecuted = false;
+        }
         if(onlineExecuted) {
             int onlinePlayers = (int) Arrays.stream(astring).count();
             ChatHelper.printMessage("Online players: &7" + onlinePlayers);

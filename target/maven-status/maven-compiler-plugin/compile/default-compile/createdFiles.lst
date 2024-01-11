@@ -1326,6 +1326,7 @@ net\minecraft\command\server\CommandSaveAll.class
 net\minecraft\entity\ai\EntityAIRestrictSun.class
 optifine\HttpPipelineSender.class
 net\minecraft\util\BlockPos$2.class
+dev\isnow\paradise\command\impl\BungeeDumpCommand.class
 net\minecraft\world\WorldSavedData.class
 dev\isnow\paradise\exploit\impl\creative\AnvilExploit.class
 net\minecraft\client\model\ModelSheep1.class
