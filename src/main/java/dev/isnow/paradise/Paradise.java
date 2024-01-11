@@ -82,10 +82,8 @@ public enum Paradise {
         new ScreenshotCommand(),
         new ToggleSprintCommand(),
         new BindButtonCommand(),
-        new BaltopDumpCommand(),
         new DiscordSRVCommand(),
         new StopDiscordSRVCommand(),
-        new HolographicDisplaysCommand(),
         new TestCommand(),
         new MotionBlurCommand(),
         new VClipCommand(),
@@ -93,7 +91,8 @@ public enum Paradise {
         new FetchAllCommand(),
         new FakeBroadcast(),
         new CopyBroadcastCommand(),
-        new BungeeDumpCommand()
+        new BungeeDumpCommand(),
+        new SeenDumpCommand()
     );
 
     exploitManager = new ExploitManager(

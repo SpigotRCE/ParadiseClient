@@ -1249,6 +1249,7 @@ C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\client\gui\Gui
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\world\chunk\NibbleArray.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\block\BlockHalfStoneSlabNew.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\util\MessageSerializer.java
+C:\Users\prana\Desktop\ParadiseClient\src\main\java\dev\isnow\paradise\command\impl\SeenDumpCommand.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\world\gen\feature\WorldGenAbstractTree.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\world\gen\structure\ComponentScatteredFeaturePieces.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\block\BlockFlowerPot.java
@@ -1346,7 +1347,6 @@ C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\item\EnumDyeCo
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\world\chunk\IChunkProvider.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\nbt\NBTTagString.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\optifine\HttpPipeline.java
-C:\Users\prana\Desktop\ParadiseClient\src\main\java\dev\isnow\paradise\command\impl\BaltopDumpCommand.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\optifine\PlayerItemModel.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\network\play\client\C03PacketPlayer.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\network\play\server\S42PacketCombatEvent.java
@@ -1778,7 +1778,6 @@ C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\client\rendere
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\item\ItemWritableBook.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\realms\RealmsSharedConstants.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\network\status\server\S01PacketPong.java
-C:\Users\prana\Desktop\ParadiseClient\src\main\java\dev\isnow\paradise\command\impl\HolographicDisplaysCommand.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\world\gen\layer\GenLayerBiomeEdge.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\viamcp\utils\JLoggerToLog4j.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\client\gui\spectator\categories\SpectatorDetails.java

@@ -2,8 +2,6 @@ package net.minecraft.client.network;
 
 import com.google.common.collect.Maps;
 import com.mojang.authlib.GameProfile;
-import dev.isnow.paradise.command.impl.BaltopDumpCommand;
-import dev.isnow.paradise.command.impl.HolographicDisplaysCommand;
 import dev.isnow.paradise.helper.ChatHelper;
 import dev.isnow.paradise.helper.SaveLoad;
 import dev.isnow.paradise.hook.MainMenuHook;
@@ -249,6 +247,8 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
     public boolean pluginsBypassExecuted = false;
     public boolean pluginsTabExecuted = false;
     public boolean bungeeDumpExecuted = false;
+    public boolean seenDumpExecuted = false;
+    public String currentPlayer = "";
 
     /**
      * Just an ordinary random number generator, used to randomize audio pitch of item/orb pickup and randomize both
@@ -861,16 +861,6 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         }
         else
         {
-            if(BaltopDumpCommand.running) {
-                BaltopDumpCommand.retrieveBaltopPage(packetIn.getChatComponent().getUnformattedText());
-                BaltopDumpCommand.handlePlayer(packetIn.getChatComponent().getUnformattedText());
-            }
-            if(HolographicDisplaysCommand.enabled) {
-                boolean nigger = HolographicDisplaysCommand.handleChat(packetIn.getChatComponent().getUnformattedText());
-                if(nigger) {
-                    return;
-                }
-            }
             this.gameController.ingameGUI.getChatGUI().printChatMessage(packetIn.getChatComponent());
         }
     }
@@ -1728,12 +1718,18 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
             guichat.onAutocompleteResponse(astring);
         }
         if(bungeeDumpExecuted){
+            for (String player : astring) {
+                mc.thePlayer.sendChatMessage("/ip " + player);
+            currentPlayer = player;
+            }
+            bungeeDumpExecuted = false;
+        }
+        if(seenDumpExecuted){
             Stream<String> onlinePlayers = Arrays.stream(astring);
             onlinePlayers.forEach(player -> {
-                // Your custom action here
-                mc.thePlayer.sendChatMessage("/ip " + player);
+                mc.thePlayer.sendChatMessage("/seen " + player);
             });
-            bungeeDumpExecuted = false;
+            seenDumpExecuted = false;
         }
         if(onlineExecuted) {
             int onlinePlayers = (int) Arrays.stream(astring).count();

@@ -1155,7 +1155,6 @@ net\minecraft\util\EnumFacing$Plane.class
 net\minecraft\client\audio\MusicTicker.class
 net\minecraft\network\play\client\C03PacketPlayer$C06PacketPlayerPosLook.class
 net\minecraft\util\IChatComponent.class
-dev\isnow\paradise\command\impl\HolographicDisplaysCommand.class
 net\minecraft\client\gui\GuiPageButtonList$GuiSlideEntry.class
 net\minecraft\client\renderer\chunk\ChunkCompileTaskGenerator.class
 dev\isnow\paradise\hook\GuiInGameHook.class
@@ -1816,6 +1815,7 @@ net\minecraft\block\BlockCompressedPowered.class
 net\minecraft\block\BlockSilverfish$EnumType$5.class
 net\minecraft\entity\monster\EntityGiantZombie.class
 net\minecraft\client\model\ModelSnowMan.class
+dev\isnow\paradise\command\impl\SeenDumpCommand.class
 net\minecraft\entity\passive\EntityVillager$PriceInfo.class
 net\minecraft\client\renderer\chunk\ChunkRenderWorker$1.class
 net\minecraft\client\particle\EntityRainFX$Factory.class
@@ -1889,7 +1889,6 @@ net\minecraft\inventory\ContainerBrewingStand$Ingredient.class
 net\minecraft\world\gen\structure\StructureVillagePieces$House3.class
 net\minecraft\client\gui\GuiOptions$1.class
 net\minecraft\stats\StatisticsFile.class
-dev\isnow\paradise\command\impl\BaltopDumpCommand.class
 net\minecraft\inventory\InventoryMerchant.class
 net\minecraft\client\renderer\VboRenderList.class
 net\minecraft\util\JsonUtils.class

@@ -13,8 +13,6 @@ import viamcp.ViaMCP;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dev.isnow.paradise.helper.DrawHelper.drawBorderedRoundedRect;
-
 public class GuiInGameHook extends GuiIngame {
 
   private static final Minecraft mc = Minecraft.getMinecraft();
@@ -64,18 +62,26 @@ public class GuiInGameHook extends GuiIngame {
       debungInfo.add(ChatHelper.fix("&fFPS: &d" + Minecraft.debugFPS));
       debungInfo.add(ChatHelper.fix("&fClient Protocol: &d" + ViaMCP.getInstance().getVersion()));
       debungInfo.add(ChatHelper.fix("&fClient Version: &d" + ProtocolVersion.getProtocol(ViaMCP.getInstance().getVersion()).getName()));
-      debungInfo.add(ChatHelper.fix("&fReal Nick: &d" + mc.thePlayer.getName()));
+      debungInfo.add(ChatHelper.fix("&fNick: &d" + mc.thePlayer.getName()));
 
       if (Paradise.INSTANCE.bungeeHack) {
         debungInfo.add(ChatHelper.fix("&fIP-Forward: &dEnabled"));
         if (!ScreenshotCommand.hidden) {
-          debungInfo.add(ChatHelper.fix("&fForwarding IP: &d" + Paradise.INSTANCE.ipBungeeHack));
-          debungInfo.add(ChatHelper.fix("&fFake Nick: &d" + Paradise.INSTANCE.fakeNick));
-          debungInfo.add(ChatHelper.fix((Paradise.INSTANCE.premiumUUID) ? "&fType: &dPremium" : "&fType: &dCracked"));
+          debungInfo.add(ChatHelper.fix("   &fForwarding IP: &d" + Paradise.INSTANCE.ipBungeeHack));
+          debungInfo.add(ChatHelper.fix("   &fFake Nick: &d" + Paradise.INSTANCE.fakeNick));
+          debungInfo.add(ChatHelper.fix((Paradise.INSTANCE.premiumUUID) ? "   &fType: &dPremium" : "    &fType: &dCracked"));
         }
       }
       else {
         debungInfo.add(ChatHelper.fix("&fIP-Forward: &dDisabled"));
+      }
+      if(mc.getNetHandler().bungeeDumpExecuted){
+        debungInfo.add("&fDumping: &dBungeeDump");
+        debungInfo.add("    &fCurrent Player: &d" + mc.getNetHandler().currentPlayer);
+      }
+      if(mc.getNetHandler().seenDumpExecuted){
+        debungInfo.add("&fDumping: &dSeenDump");
+        debungInfo.add("    &fCurrent Player: &d" + mc.getNetHandler().currentPlayer);
       }
     }
 
