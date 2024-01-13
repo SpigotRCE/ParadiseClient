@@ -40,7 +40,6 @@ public enum Paradise {
   public boolean premiumUUID;
   public boolean sessionPremium;
 
-  public boolean autoVersion;
 
   public String ipBungeeHack = "1.1.1.1";
   public String fakeNick = "NIGGERS ON TOP, NIGGA";

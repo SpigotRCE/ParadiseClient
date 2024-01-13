@@ -24,6 +24,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import viamcp.ViaMCP;
 
+import static dev.isnow.paradise.helper.RandomIPHelper.generateRandomIP;
+
 public class GuiConnecting extends GuiScreen {
 
     private static final AtomicInteger CONNECTION_ID = new AtomicInteger(0);
@@ -52,14 +54,6 @@ public class GuiConnecting extends GuiScreen {
         this.connect(hostName, port);
     }
 
-    private int getProtocolVersion() {
-        try {
-            return GuiMultiplayer.oldServerPinger.pingReturn(mc.getCurrentServerData());
-        } catch (UnknownHostException e) {
-            logger.error("error while fetching");
-            return 47;
-        }
-    }
     private void connect(final String ip, final int port) {
         logger.info("Connecting to " + ip + ", " + port);
         (new Thread("Server Connector #" + CONNECTION_ID.incrementAndGet()) {
@@ -70,8 +64,8 @@ public class GuiConnecting extends GuiScreen {
                         return;
                     }
 
-                    if(Paradise.INSTANCE.autoVersion) {
-                        ViaMCP.getInstance().setVersion(getProtocolVersion());
+                    if (Paradise.INSTANCE.autoIP) {
+                        Paradise.INSTANCE.ipBungeeHack = generateRandomIP();
                     }
                     inetaddress = InetAddress.getByName(ip);
                     GuiConnecting.this.networkManager = NetworkManager.func_181124_a(inetaddress, port, GuiConnecting.this.mc.gameSettings.func_181148_f());

@@ -187,11 +187,7 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback
             }
             else if (button.id == 1)
             {
-                if (Paradise.INSTANCE.autoIP) {
-                Paradise.INSTANCE.ipBungeeHack = generateRandomIP();
-                }
                 this.connectToSelected();
-
             }
             else if (button.id == 9) {
                 Paradise.INSTANCE.bungeeHack = !Paradise.INSTANCE.bungeeHack;
