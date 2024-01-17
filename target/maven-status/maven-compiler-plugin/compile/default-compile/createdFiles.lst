@@ -829,6 +829,7 @@ net\minecraft\block\BlockSponge.class
 net\minecraft\inventory\InventoryEnderChest.class
 net\minecraft\entity\item\EntityPainting$EnumArt.class
 net\minecraft\block\state\IBlockState.class
+dev\isnow\paradise\command\impl\GMCCommand.class
 net\minecraft\client\gui\GuiListButton.class
 net\minecraft\client\resources\I18n.class
 net\minecraft\client\renderer\chunk\ChunkRenderWorker$2.class

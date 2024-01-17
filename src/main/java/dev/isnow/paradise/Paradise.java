@@ -27,7 +27,7 @@ import viamcp.ViaMCP;
 public enum Paradise {
   INSTANCE;
 
-  public String broadcastOfMilk = "&1Server hacked by &4&lhttps://www.youtube.com/@SpigotRCE &7https://discord.gg/Mmfq4RCtyE";
+  public String broadcastOfMilk = "&1Server hacked by &4&lhttps://www.youtube.com/@SpigotRCE &7https://discord.gg/2WCauMGqR8";
   public final CommandManager commandManager;
   private final ExploitManager exploitManager;
   private DiscordRichPresenceManager discordRichPresence;
@@ -91,7 +91,8 @@ public enum Paradise {
         new FakeBroadcast(),
         new CopyBroadcastCommand(),
         new BungeeDumpCommand(),
-        new SeenDumpCommand()
+        new SeenDumpCommand(),
+        new GMCCommand()
     );
 
     exploitManager = new ExploitManager(

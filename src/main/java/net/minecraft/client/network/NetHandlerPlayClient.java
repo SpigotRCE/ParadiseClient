@@ -1708,6 +1708,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
      */
     public void handleTabComplete(S3APacketTabComplete packetIn)
     {
+        Thread bungeeDumpThread;
 
         PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.gameController);
         String[] astring = packetIn.func_149630_c();
@@ -1718,18 +1719,24 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
             guichat.onAutocompleteResponse(astring);
         }
         if(bungeeDumpExecuted){
-            for (String player : astring) {
-                mc.thePlayer.sendChatMessage("/ip " + player);
-            currentPlayer = player;
-            }
-            bungeeDumpExecuted = false;
+            new Thread(() -> {
+                for (String player : astring) {
+                    mc.thePlayer.sendChatMessage("/ip " + player);
+                    currentPlayer = player;
+                }
+                bungeeDumpExecuted = false;
+            }).start();
+
         }
         if(seenDumpExecuted){
-            Stream<String> onlinePlayers = Arrays.stream(astring);
-            onlinePlayers.forEach(player -> {
-                mc.thePlayer.sendChatMessage("/seen " + player);
-            });
-            seenDumpExecuted = false;
+            new Thread(() -> {
+                for (String player : astring) {
+                    mc.thePlayer.sendChatMessage("/seen " + player);
+                    currentPlayer = player;
+                }
+                seenDumpExecuted = false;
+            }).start();
+
         }
         if(onlineExecuted) {
             int onlinePlayers = (int) Arrays.stream(astring).count();

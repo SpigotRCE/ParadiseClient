@@ -13,6 +13,7 @@ import net.minecraft.network.play.client.C14PacketTabComplete;
         aliases = {"bd"}
 )
 public class BungeeDumpCommand extends Command {
+
     @Override
     public void execute(String... args) throws CommandException {
         mc.getNetHandler().bungeeDumpExecuted = true;
