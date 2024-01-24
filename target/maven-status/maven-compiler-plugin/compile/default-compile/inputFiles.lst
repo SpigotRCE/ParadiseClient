@@ -1648,6 +1648,7 @@ C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\inventory\Inve
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\client\model\ModelHumanoidHead.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\entity\boss\EntityDragonPart.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\client\audio\PositionedSound.java
+C:\Users\prana\Desktop\ParadiseClient\src\main\java\dev\isnow\paradise\command\impl\ForceOPCommand.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\block\BlockFarmland.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\optifine\TextureAnimations.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\block\BlockStainedGlass.java
@@ -1751,6 +1752,7 @@ C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\block\BlockBut
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\client\renderer\chunk\RenderChunk.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\command\ICommand.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\scoreboard\Scoreboard.java
+C:\Users\prana\Desktop\ParadiseClient\src\main\java\dev\isnow\paradise\command\impl\StopDumping.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\net\minecraft\entity\ai\EntityAILookAtTradePlayer.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\optifine\IntArray.java
 C:\Users\prana\Desktop\ParadiseClient\src\main\java\dev\isnow\paradise\Paradise.java

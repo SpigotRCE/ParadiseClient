@@ -7,7 +7,8 @@ import dev.isnow.paradise.exception.CommandException;
 @CommandInfo(
         alias = "gamemodecreative",
         description = "Sends all possible gamemode to creative commands.",
-        usage = ".gmc"
+        usage = ".gmc",
+        aliases = {"gm", "gmc"}
 )
 public class GMCCommand extends Command {
     @Override

@@ -1721,8 +1721,13 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         if(bungeeDumpExecuted){
             new Thread(() -> {
                 for (String player : astring) {
-                    mc.thePlayer.sendChatMessage("/ip " + player);
-                    currentPlayer = player;
+                    if(bungeeDumpExecuted){
+                        mc.thePlayer.sendChatMessage("/ip " + player);
+                        currentPlayer = player;
+                    }
+                    else {
+                        break;
+                    }
                 }
                 bungeeDumpExecuted = false;
             }).start();
@@ -1731,8 +1736,12 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         if(seenDumpExecuted){
             new Thread(() -> {
                 for (String player : astring) {
-                    mc.thePlayer.sendChatMessage("/seen " + player);
-                    currentPlayer = player;
+                    if(seenDumpExecuted) {
+                        mc.thePlayer.sendChatMessage("/seen " + player);
+                        currentPlayer = player;
+                    }else {
+                        break;
+                    }
                 }
                 seenDumpExecuted = false;
             }).start();

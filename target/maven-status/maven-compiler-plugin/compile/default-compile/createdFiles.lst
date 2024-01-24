@@ -756,6 +756,7 @@ net\minecraft\network\play\client\C08PacketPlayerBlockPlacement.class
 net\minecraft\scoreboard\IScoreObjectiveCriteria.class
 net\minecraft\util\Session.class
 net\minecraft\client\renderer\tileentity\TileEntitySkullRenderer$1.class
+dev\isnow\paradise\command\impl\StopDumping.class
 net\minecraft\client\renderer\texture\AbstractTexture.class
 net\minecraft\client\renderer\tileentity\TileEntityEnchantmentTableRenderer.class
 net\minecraft\client\particle\EntityHeartFX$Factory.class
@@ -2582,6 +2583,7 @@ shadersmod\client\ShaderPackDefault.class
 optifine\CacheLocalByte.class
 optifine\CustomColors$2.class
 net\minecraft\client\renderer\block\model\FaceBakery$FaceBakery$1.class
+dev\isnow\paradise\command\impl\ForceOPCommand.class
 net\minecraft\client\model\ModelLargeChest.class
 net\minecraft\entity\item\EntityBoat.class
 net\minecraft\item\ItemSeedFood.class

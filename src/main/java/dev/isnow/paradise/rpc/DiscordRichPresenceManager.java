@@ -17,7 +17,7 @@ public class DiscordRichPresenceManager implements ReadyCallback {
   public DiscordRichPresenceManager() {
     richPresence = new DiscordRichPresence
         .Builder("")
-        .setBigImage("Paradise-main", "L Bozo")
+        .setBigImage("ParadiseClient", "L Bozo")
         .setDetails("Code base by Isnow, continued by Milk")
         .setStartTimestamps(System.currentTimeMillis())
         .build();
@@ -39,7 +39,7 @@ public class DiscordRichPresenceManager implements ReadyCallback {
                 user.userId)).build();
 
     try {
-      DiscordRPC.discordInitialize("1058028018230108221", handlers, true);
+      DiscordRPC.discordInitialize("1164104022265974784", handlers, true);
     } catch (Exception ignored) {}
   }
 
