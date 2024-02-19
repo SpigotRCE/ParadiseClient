@@ -1,6 +1,5 @@
 package net.minecraft.client.multiplayer;
 
-import dev.isnow.paradise.Paradise;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;

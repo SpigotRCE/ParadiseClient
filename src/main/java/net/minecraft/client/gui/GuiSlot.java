@@ -1,7 +1,7 @@
 package net.minecraft.client.gui;
 
-import dev.isnow.paradise.Paradise;
-import dev.isnow.paradise.helper.DrawHelper;
+import tk.milkthedev.paradise.Paradise;
+import tk.milkthedev.paradise.helper.DrawHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;

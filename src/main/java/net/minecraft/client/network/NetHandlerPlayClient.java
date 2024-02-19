@@ -2,9 +2,9 @@ package net.minecraft.client.network;
 
 import com.google.common.collect.Maps;
 import com.mojang.authlib.GameProfile;
-import dev.isnow.paradise.helper.ChatHelper;
-import dev.isnow.paradise.helper.SaveLoad;
-import dev.isnow.paradise.hook.MainMenuHook;
+import tk.milkthedev.paradise.helper.ChatHelper;
+import tk.milkthedev.paradise.helper.SaveLoad;
+import tk.milkthedev.paradise.hook.MainMenuHook;
 import io.netty.buffer.Unpooled;
 
 import java.io.IOException;
@@ -15,7 +15,6 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.Map.Entry;
-import java.util.stream.Stream;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -203,7 +202,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.storage.MapData;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import dev.isnow.paradise.holder.Holder;
+import tk.milkthedev.paradise.holder.Holder;
 
 public class NetHandlerPlayClient implements INetHandlerPlayClient
 {

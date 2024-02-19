@@ -34,10 +34,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
 
-import dev.isnow.paradise.command.impl.ScreenshotCommand;
-import dev.isnow.paradise.helper.ChatHelper;
-import dev.isnow.paradise.helper.SaveLoad;
-import dev.isnow.paradise.hook.MainMenuHook;
+import tk.milkthedev.paradise.command.impl.ScreenshotCommand;
+import tk.milkthedev.paradise.helper.ChatHelper;
+import tk.milkthedev.paradise.helper.SaveLoad;
+import tk.milkthedev.paradise.hook.MainMenuHook;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.audio.MusicTicker;
@@ -179,8 +179,8 @@ import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.OpenGLException;
 import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
-import dev.isnow.paradise.Paradise;
-import dev.isnow.paradise.hook.GuiInGameHook;
+import tk.milkthedev.paradise.Paradise;
+import tk.milkthedev.paradise.hook.GuiInGameHook;
 import viamcp.utils.AttackOrder;
 
 public class Minecraft implements IThreadListener, IPlayerUsage

@@ -9,8 +9,8 @@ import java.nio.FloatBuffer;
 import java.util.*;
 import java.util.concurrent.Callable;
 
-import dev.isnow.paradise.helper.MotionBlur;
-import dev.isnow.paradise.hook.MainMenuHook;
+import tk.milkthedev.paradise.helper.MotionBlur;
+import tk.milkthedev.paradise.hook.MainMenuHook;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.material.Material;

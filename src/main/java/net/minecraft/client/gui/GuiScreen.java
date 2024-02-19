@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import dev.isnow.paradise.helper.DrawHelper;
+import tk.milkthedev.paradise.helper.DrawHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
@@ -40,8 +40,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-import dev.isnow.paradise.Paradise;
-import dev.isnow.paradise.command.CommandManager;
+import tk.milkthedev.paradise.Paradise;
+import tk.milkthedev.paradise.command.CommandManager;
 
 public abstract class GuiScreen extends Gui implements GuiYesNoCallback
 {

@@ -1,16 +1,13 @@
 package net.minecraft.client.gui;
 
-import java.awt.*;
 import java.io.IOException;
 
-import dev.isnow.paradise.Paradise;
-import dev.isnow.paradise.helper.ColorHelper;
+import tk.milkthedev.paradise.Paradise;
 import net.minecraft.client.multiplayer.ServerData;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import org.lwjgl.input.Keyboard;
 
-import static dev.isnow.paradise.helper.RandomIPHelper.generateRandomIP;
+import static tk.milkthedev.paradise.helper.RandomIPHelper.generateRandomIP;
 
 public class GuiScreenServerList extends GuiScreen
 {

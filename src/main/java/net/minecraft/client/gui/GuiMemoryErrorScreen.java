@@ -2,7 +2,7 @@ package net.minecraft.client.gui;
 
 import java.io.IOException;
 
-import dev.isnow.paradise.hook.MainMenuHook;
+import tk.milkthedev.paradise.hook.MainMenuHook;
 import net.minecraft.client.resources.I18n;
 
 public class GuiMemoryErrorScreen extends GuiScreen

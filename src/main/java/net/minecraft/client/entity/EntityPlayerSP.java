@@ -1,6 +1,6 @@
 package net.minecraft.client.entity;
 
-import dev.isnow.paradise.command.impl.ToggleSprintCommand;
+import tk.milkthedev.paradise.command.impl.ToggleSprintCommand;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;

@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 
-import dev.isnow.paradise.Paradise;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;

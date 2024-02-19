@@ -1,16 +1,11 @@
 package net.minecraft.client;
 
-import dev.isnow.paradise.Paradise;
-import dev.isnow.paradise.helper.DrawHelper;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.shader.Framebuffer;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.MinecraftError;
-
-import java.awt.*;
 
 public class LoadingScreenRenderer implements IProgressUpdate
 {

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import javax.vecmath.Matrix4f;
 
-import dev.isnow.paradise.hook.MainMenuHook;
+import tk.milkthedev.paradise.hook.MainMenuHook;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;

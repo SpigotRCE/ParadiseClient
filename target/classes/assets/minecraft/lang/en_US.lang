@@ -1940,7 +1940,7 @@ advMode.notAllowed=Must be an opped player in creative mode
 
 mount.onboard=Press %1$s to dismount
 
-build.tooHigh=Height limit for building is %s blocks
+build.tooHigh=Height limit for building is %s blocks only
 
 attribute.modifier.plus.0=+%d %s
 attribute.modifier.plus.1=+%d%% %s

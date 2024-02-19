@@ -1,7 +1,6 @@
 package net.minecraft.network.play.server;
 
-import dev.isnow.paradise.Paradise;
-import dev.isnow.paradise.helper.ChatHelper;
+import tk.milkthedev.paradise.helper.ChatHelper;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

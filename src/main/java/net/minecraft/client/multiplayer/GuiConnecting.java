@@ -5,12 +5,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import dev.isnow.paradise.Paradise;
-import dev.isnow.paradise.command.impl.TestCommand;
+import tk.milkthedev.paradise.Paradise;
+import tk.milkthedev.paradise.command.impl.TestCommand;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiDisconnected;
-import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.network.NetHandlerLoginClient;
 import net.minecraft.client.resources.I18n;
@@ -22,9 +21,8 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import viamcp.ViaMCP;
 
-import static dev.isnow.paradise.helper.RandomIPHelper.generateRandomIP;
+import static tk.milkthedev.paradise.helper.RandomIPHelper.generateRandomIP;
 
 public class GuiConnecting extends GuiScreen {
 

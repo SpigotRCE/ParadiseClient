@@ -4,11 +4,10 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
-import dev.isnow.paradise.Paradise;
-import dev.isnow.paradise.helper.ColorHelper;
-import dev.isnow.paradise.hook.alt.GuiUUIDSpoof;
+import tk.milkthedev.paradise.Paradise;
+import tk.milkthedev.paradise.helper.ColorHelper;
+import tk.milkthedev.paradise.hook.alt.GuiUUIDSpoof;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.GuiConnecting;
 import net.minecraft.client.multiplayer.ServerData;
@@ -20,8 +19,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.input.Keyboard;
 import viamcp.ViaMCP;
-
-import static dev.isnow.paradise.helper.RandomIPHelper.generateRandomIP;
 
 public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback
 {

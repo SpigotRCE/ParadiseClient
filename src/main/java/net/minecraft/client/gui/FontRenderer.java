@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
-import dev.isnow.paradise.Paradise;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
