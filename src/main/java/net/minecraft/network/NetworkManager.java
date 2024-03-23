@@ -232,14 +232,14 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         final EnumConnectionState enumconnectionstate1 = this.channel.attr(attrKeyConnectionState).get();
         if (inPacket instanceof C00Handshake) {
             if (Paradise.INSTANCE.bungeeHack && !Paradise.INSTANCE.sessionPremium && !Paradise.INSTANCE.premiumUUID && ((C00Handshake)inPacket).getRequestedState() == EnumConnectionState.LOGIN) {
-                ((C00Handshake)inPacket).setIp(((C00Handshake)inPacket).getIp() + "\u0000" + Paradise.INSTANCE.ipBungeeHack + "\u0000" + UUID.nameUUIDFromBytes(("OfflinePlayer:" + Paradise.INSTANCE.fakeNick).getBytes()).toString().replace("-", ""));
+                ((C00Handshake)inPacket).setIp(((C00Handshake)inPacket).getIp() + "\u0000" + Paradise.INSTANCE.ipBungeeHack + "\00" + UUID.nameUUIDFromBytes(("OfflinePlayer:" + Paradise.INSTANCE.fakeNick).getBytes()).toString().replace("-", "") + "\00" + "[{\"name\": \"bungeeguard-token\", \"value\": \"" + Paradise.INSTANCE.bungeeGuardField +  "\"}]");
             }
             if (Paradise.INSTANCE.bungeeHack && !Paradise.INSTANCE.sessionPremium && Paradise.INSTANCE.premiumUUID && ((C00Handshake)inPacket).getRequestedState() == EnumConnectionState.LOGIN) {
-                ((C00Handshake)inPacket).setIp(((C00Handshake)inPacket).getIp() + "\u0000" + Paradise.INSTANCE.ipBungeeHack + "\u0000" + Paradise.INSTANCE.PreUUID);
+                ((C00Handshake)inPacket).setIp(((C00Handshake)inPacket).getIp() + "\00" + Paradise.INSTANCE.ipBungeeHack + "\00" + Paradise.INSTANCE.PreUUID  + "\00" + "[{\"name\": \"bungeeguard-token\", \"value\": \"" + Paradise.INSTANCE.bungeeGuardField +  "\"}]");
             }
         }
         if (Paradise.INSTANCE.bungeeHack && Paradise.INSTANCE.sessionPremium && ((C00Handshake)inPacket).getRequestedState() == EnumConnectionState.LOGIN) {
-            ((C00Handshake)inPacket).setIp(((C00Handshake)inPacket).getIp() + "\u0000" + Paradise.INSTANCE.ipBungeeHack + Paradise.INSTANCE.PreUUID);
+            ((C00Handshake)inPacket).setIp(((C00Handshake)inPacket).getIp() + "\00" + Paradise.INSTANCE.ipBungeeHack + Paradise.INSTANCE.PreUUID  + "\00" + "[{\"name\": \"bungeeguard-token\", \"value\": \"" + Paradise.INSTANCE.bungeeGuardField +  "\"}]");
         }
         if (enumconnectionstate1 != enumconnectionstate) {
             logger.debug("Disabled auto read");
@@ -300,6 +300,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         Holder.setLastPacketMS(-1L);
         Holder.getTpsTimes().clear();
     }
+
 
     public void enableEncryption(final SecretKey key) {
         this.isEncrypted = true;

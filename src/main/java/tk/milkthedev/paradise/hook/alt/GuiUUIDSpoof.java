@@ -19,6 +19,7 @@ public class GuiUUIDSpoof extends GuiScreen {
     protected GuiTextField fakeNickField;
 
     protected GuiTextField realNickField;
+    protected GuiTextField bungeeGuardField;
 
     protected GuiScreen prevScreen;
 
@@ -36,6 +37,8 @@ public class GuiUUIDSpoof extends GuiScreen {
                 20, "Back"));
         this.buttonList.add(new GuiButton(4, width / 2 - 100, height / 4 + 130, 200, 20,
                 PremiumUUID()));
+        this.bungeeGuardField = new GuiTextField(3, this.fontRendererObj, width / 2 - 100, height / 4 + 100,
+                200, 20);
         this.fakeNickField = new GuiTextField(1, this.fontRendererObj, width / 2 - 100, height / 4 + 60,
                 200, 20);
         this.realNickField = new GuiTextField(2, this.fontRendererObj, width / 2 - 100, height / 4 + 20,
@@ -43,7 +46,8 @@ public class GuiUUIDSpoof extends GuiScreen {
         this.fakeNickField.setText(Paradise.INSTANCE.fakeNick);
         GameProfile profile = Minecraft.getMinecraft().getSession().getProfile();
         this.realNickField.setText(profile.getName());
-        this.Report = ColorHelper.color + "fTo have your premium session back, set your nick and fakenick to your orginal nick.";
+        this.bungeeGuardField.setText(Paradise.INSTANCE.bungeeGuardField);
+        this.Report = ColorHelper.color + "fTo have your premium session back, set your nick and fakenick to your original nick.";
     }
 
     private String PremiumUUID() {
@@ -66,6 +70,7 @@ public class GuiUUIDSpoof extends GuiScreen {
                 Session realSession = mc.getSession();
                 mc.session = new Session(realNickField.getText(), realSession.getPlayerID(), realSession.getToken(), Session.Type.LEGACY.name());
                 Paradise.INSTANCE.fakeNick = fakeNickField.getText();
+                Paradise.INSTANCE.bungeeGuardField = bungeeGuardField.getText();
                 thread = new AltLoginThread(realNickField.getText(), "");
                 thread.start();
                 Paradise.INSTANCE.sessionPremium = false;
@@ -76,6 +81,7 @@ public class GuiUUIDSpoof extends GuiScreen {
                     Session realSession = mc.getSession();
                     mc.session = new Session(realNickField.getText(), realSession.getPlayerID(), realSession.getToken(), Session.Type.LEGACY.name());
                     Paradise.INSTANCE.fakeNick = fakeNickField.getText();
+                    Paradise.INSTANCE.bungeeGuardField = bungeeGuardField.getText();
                     thread = new AltLoginThread(realNickField.getText(), "");
                     thread.start();
                     Paradise.INSTANCE.sessionPremium = false;
@@ -96,6 +102,7 @@ public class GuiUUIDSpoof extends GuiScreen {
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
         this.fakeNickField.mouseClicked(mouseX, mouseY, mouseButton);
         this.realNickField.mouseClicked(mouseX, mouseY, mouseButton);
+        this.bungeeGuardField.mouseClicked(mouseX, mouseY, mouseButton);
         super.mouseClicked(mouseX, mouseY, mouseButton);
     }
 
@@ -110,9 +117,13 @@ public class GuiUUIDSpoof extends GuiScreen {
                 this.fakeNickField.setFocused(true);
             } else if (this.fakeNickField.isFocused()) {
                 this.fakeNickField.setFocused(false);
+            } else if (this.bungeeGuardField.isFocused()) {
+                this.bungeeGuardField.setFocused(false);
             }
         if (this.fakeNickField.isFocused())
             this.fakeNickField.textboxKeyTyped(typedChar, keyCode);
+        if (this.bungeeGuardField.isFocused())
+            this.bungeeGuardField.textboxKeyTyped(typedChar, keyCode);
         if (this.realNickField.isFocused())
             this.realNickField.textboxKeyTyped(typedChar, keyCode);
     }
@@ -124,6 +135,7 @@ public class GuiUUIDSpoof extends GuiScreen {
         drawCenteredString(this.fontRendererObj, "Fake Nick", width / 2, this.fakeNickField.yPosition - 15, 16777215);
         this.fakeNickField.drawTextBox();
         this.realNickField.drawTextBox();
+        this.bungeeGuardField.drawTextBox();
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 

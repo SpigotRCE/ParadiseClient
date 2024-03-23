@@ -10,7 +10,6 @@ import tk.milkthedev.paradise.exploit.impl.flood.ChannelExploit;
 import tk.milkthedev.paradise.exploit.impl.flood.CommandBlockExploit;
 import tk.milkthedev.paradise.exploit.impl.flood.LuckpermsExploit;
 import tk.milkthedev.paradise.exploit.impl.nbt.*;
-import tk.milkthedev.paradise.exploit.impl.other.*;
 import tk.milkthedev.paradise.rpc.DiscordRichPresenceManager;
 import net.arikia.dev.drpc.DiscordRPC;
 import net.minecraft.client.Minecraft;
@@ -20,8 +19,6 @@ import net.minecraft.util.Session;
 import org.lwjgl.opengl.Display;
 import tk.milkthedev.paradise.exploit.impl.creative.AnvilExploit;
 import tk.milkthedev.paradise.exploit.impl.flood.AttackExploit;
-import tk.milkthedev.paradise.command.impl.*;
-import tk.milkthedev.paradise.exploit.impl.nbt.*;
 import tk.milkthedev.paradise.exploit.impl.other.FaweExploit;
 import tk.milkthedev.paradise.exploit.impl.other.MultiverseExploit;
 import tk.milkthedev.paradise.exploit.impl.other.PEXExploit;
@@ -31,7 +28,7 @@ import viamcp.ViaMCP;
 public enum Paradise {
   INSTANCE;
 
-  public String broadcastOfMilk = "&1Server hacked by &4&lhttps://www.youtube.com/@SpigotRCE &7https://discord.gg/hFXQnuYv";
+  public String broadcastOfMilk = "&1Server hacked by &4&lhttps://www.youtube.com/@SpigotRCE &7https://discord.gg/spigotrce";
   public final CommandManager commandManager;
   private final ExploitManager exploitManager;
   private DiscordRichPresenceManager discordRichPresence;
@@ -47,6 +44,7 @@ public enum Paradise {
 
   public String ipBungeeHack = "1.1.1.1";
   public String fakeNick = "NIGGERS ON TOP, NIGGA";
+  public String bungeeGuardField = "A bungeeguard token goes here!";
   public boolean autoIP = false;
 
   public final HashMap<Item, String> toolBinds = new HashMap<>();
@@ -54,7 +52,6 @@ public enum Paradise {
 
   public DynamicTexture wallpaper;
 
-  public boolean dev = true;
 
   Paradise() {
     System.setProperty("com.sun.jndi.ldap.object.trustURLCodebase", "false");
