@@ -21,20 +21,21 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tk.milkthedev.paradise.helper.ChatHelper;
 
 import static tk.milkthedev.paradise.helper.RandomIPHelper.generateRandomIP;
 
 public class GuiConnecting extends GuiScreen {
 
-    private static final AtomicInteger CONNECTION_ID = new AtomicInteger(0);
+    public static final AtomicInteger CONNECTION_ID = new AtomicInteger(0);
     private static final Logger logger = LogManager.getLogger();
     private NetworkManager networkManager;
     private boolean cancel;
     private final GuiScreen previousGuiScreen;
 
-    public GuiConnecting(GuiScreen p_i1181_1_, Minecraft mcIn, ServerData p_i1181_3_) {
+    public GuiConnecting(GuiScreen oldScreen, Minecraft mcIn, ServerData p_i1181_3_) {
         this.mc = mcIn;
-        this.previousGuiScreen = p_i1181_1_;
+        this.previousGuiScreen = oldScreen;
         ServerAddress serveraddress = ServerAddress.func_78860_a(p_i1181_3_.serverIP);
         if(!TestCommand.exploit) {
             mcIn.loadWorld(null);

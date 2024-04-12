@@ -94,8 +94,10 @@ public enum Paradise {
         new BungeeDumpCommand(),
         new SeenDumpCommand(),
         new GMCCommand(),
-        new ForceOPCommand()
-    );
+        new ForceOPCommand(),
+//        new TabCompleteCrash(),
+        new ConnectCommand()
+            );
 
     exploitManager = new ExploitManager(
         new AnvilExploit(),
