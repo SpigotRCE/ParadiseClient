@@ -9,6 +9,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import java.awt.*;
 import java.io.IOException;
 
+import static optifine.Reflector.Minecraft;
+
 public class MainMenuHook extends GuiScreen {
 
     public float mouseXOffset = 0, mouseYOffset = 0;
@@ -52,7 +54,17 @@ public class MainMenuHook extends GuiScreen {
         GlStateManager.popMatrix();
 
         mc.fontRendererObj.drawString("Code base by Isnow, continued by Milk", 2, 14, -1);
-        mc.fontRendererObj.drawString("https://www.youtube.com/@SpigotRCE", 2, this.height - mc.fontRendererObj.FONT_HEIGHT, ColorHelper.astolfoColors(14, 16));
+
+        char[] chars = "https://www.youtube.com/@SpigotRCE".toCharArray();
+
+        int charOffset = 2; // init position
+        int colorOffset = 0;
+        for (char line : chars)
+        {
+            mc.fontRendererObj.drawString(String.valueOf(line), charOffset, this.height - mc.fontRendererObj.FONT_HEIGHT, ColorHelper.getChroma(colorOffset, 1, 1).getRGB());
+            charOffset += mc.fontRendererObj.getCharWidth(line);
+            colorOffset -= 100;
+        }
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 

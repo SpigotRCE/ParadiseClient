@@ -28,19 +28,11 @@ public class ColorHelper {
         return new Color(obj.getRed(), obj.getGreen(), obj.getBlue(), Math.max(0, Math.min(255, (int) (opacity * 255))));
     }
 
-    //Credits to Plexter C#1339 for this :)
-    public static int astolfoColors(int yOffset, int yTotal) {
-        float speed = 5000;
-        float hue = (float) (System.currentTimeMillis() % (int)speed) + ((yTotal - yOffset) * 9);
-        while (hue > speed) {
-            hue -= speed;
-        }
-        hue /= speed;
-        if (hue > 0.5) {
-            hue = 0.5F - (hue - 0.5f);
-        }
-        hue += 0.5F;
-        return Color.HSBtoRGB(hue, 0.5f, 1F);
+    public static Color getChroma(int delay, float saturation, float brightness)
+    {
+        double chroma = Math.ceil((double) (System.currentTimeMillis() + delay) / 20);
+        chroma %= 360;
+        return Color.getHSBColor((float) (chroma / 360), saturation, brightness);
     }
 
 

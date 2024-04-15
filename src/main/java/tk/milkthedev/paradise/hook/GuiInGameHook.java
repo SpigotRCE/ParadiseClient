@@ -29,7 +29,17 @@ public class GuiInGameHook extends GuiIngame {
     super.renderGameOverlay(partialTicks);
 
 
-    mc.fontRendererObj.drawString("Paradise [Private Edition]", 6, 7,  ColorHelper.astolfoColors(10, 14));
+    char[] chars = "ParadiseClient".toCharArray();
+
+    int charOffset = 6; // init position
+    int colorOffset = 0;
+    for (char line : chars)
+    {
+      mc.fontRendererObj.drawString(String.valueOf(line), charOffset, 7, ColorHelper.getChroma(colorOffset, 1, 1).getRGB());
+      charOffset += mc.fontRendererObj.getCharWidth(line);
+      colorOffset -= 100;
+    }
+
     List<String> debungInfo = new ArrayList<String>();
 
     if (!mc.isSingleplayer()) {
