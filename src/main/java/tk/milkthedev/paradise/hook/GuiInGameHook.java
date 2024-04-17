@@ -40,7 +40,7 @@ public class GuiInGameHook extends GuiIngame {
       colorOffset -= 100;
     }
 
-    List<String> debungInfo = new ArrayList<String>();
+    List<String> lines = new ArrayList<String>();
 
     if (!mc.isSingleplayer()) {
       long lastPacketMS = TimeHelper.getCurrentTime() - Holder.getLastPacketMS();
@@ -48,7 +48,7 @@ public class GuiInGameHook extends GuiIngame {
         return;
       }
       if(!ScreenshotCommand.hidden) {
-        debungInfo.add(ChatHelper.fix("&fServer: &d" + mc.getCurrentServerData().serverIP));
+        lines.add(ChatHelper.fix("&fServer: " + mc.getCurrentServerData().serverIP));
       }
 
       try {
@@ -56,51 +56,62 @@ public class GuiInGameHook extends GuiIngame {
           String brand = mc.thePlayer.getClientBrand().contains("<- ") ?
                   mc.thePlayer.getClientBrand().split(" ")[0] + " -> " + mc.thePlayer.getClientBrand()
                           .split("<- ")[1] : mc.thePlayer.getClientBrand().split(" ")[0];
-          debungInfo.add(ChatHelper.fix("&fEngine: &d" + brand));
+          lines.add(ChatHelper.fix("&fEngine: " + brand));
         }
       } catch (Exception ignored) {
-        debungInfo.add(ChatHelper.fix("&fEngine: &d" + "INVALID"));
+        lines.add(ChatHelper.fix("&fEngine: " + "INVALID"));
       }
 
       if (Holder.getLastPacketMS() != -1) {
-        debungInfo.add(ChatHelper.fix(String.format("&fLast packet: &d%sms", lastPacketMS)));
+        lines.add(ChatHelper.fix(String.format("&fLast packet: %sms", lastPacketMS)));
       }
 
       if (Holder.getTPS() != -1) {
-        debungInfo.add(ChatHelper.fix(String.format("&fPredicted TPS: &d%s", Math.round(Holder.getTPS() * 100.0) / 100.0)));
+        lines.add(ChatHelper.fix(String.format("&fPredicted TPS: %s", Math.round(Holder.getTPS() * 100.0) / 100.0)));
       } else {
-        debungInfo.add(ChatHelper.fix("&fPredicted TPS: &dInvalid"));
+        lines.add(ChatHelper.fix("&fPredicted TPS: Invalid"));
       }
 
-      debungInfo.add(ChatHelper.fix("&fFPS: &d" + Minecraft.debugFPS));
-      debungInfo.add(ChatHelper.fix("&fClient Protocol: &d" + ViaMCP.getInstance().getVersion()));
-      debungInfo.add(ChatHelper.fix("&fClient Version: &d" + ProtocolVersion.getProtocol(ViaMCP.getInstance().getVersion()).getName()));
-      debungInfo.add(ChatHelper.fix("&fNick: &d" + mc.thePlayer.getName()));
+      lines.add(ChatHelper.fix("&fFPS: " + Minecraft.debugFPS));
+      lines.add(ChatHelper.fix("&fClient Protocol: " + ViaMCP.getInstance().getVersion()));
+      lines.add(ChatHelper.fix("&fClient Version: " + ProtocolVersion.getProtocol(ViaMCP.getInstance().getVersion()).getName()));
+      lines.add(ChatHelper.fix("&fNick: " + mc.thePlayer.getName()));
 
       if (Paradise.INSTANCE.bungeeHack) {
-        debungInfo.add(ChatHelper.fix("&fIP-Forward: &dEnabled"));
+        lines.add(ChatHelper.fix("&fIP-Forward: Enabled"));
         if (!ScreenshotCommand.hidden) {
-          debungInfo.add(ChatHelper.fix("   &fForwarding IP: &d" + Paradise.INSTANCE.ipBungeeHack));
-          debungInfo.add(ChatHelper.fix("   &fFake Nick: &d" + Paradise.INSTANCE.fakeNick));
-          debungInfo.add(ChatHelper.fix((Paradise.INSTANCE.premiumUUID) ? "   &fType: &dPremium" : "    &fType: &dCracked"));
+          lines.add(ChatHelper.fix("   &fForwarding IP: " + Paradise.INSTANCE.ipBungeeHack));
+          lines.add(ChatHelper.fix("   &fFake Nick: " + Paradise.INSTANCE.fakeNick));
+          lines.add(ChatHelper.fix((Paradise.INSTANCE.premiumUUID) ? "   &fType: Premium" : "    &fType: Cracked"));
         }
       }
       else {
-        debungInfo.add(ChatHelper.fix("&fIP-Forward: &dDisabled"));
+        lines.add(ChatHelper.fix("&fIP-Forward: Disabled"));
       }
       if(mc.getNetHandler().bungeeDumpExecuted){
-        debungInfo.add("&fDumping: &dBungeeDump");
-        debungInfo.add("    &fCurrent Player: &d" + mc.getNetHandler().currentPlayer);
+        lines.add("&fDumping: BungeeDump");
+        lines.add("    &fCurrent Player: " + mc.getNetHandler().currentPlayer);
       }
       if(mc.getNetHandler().seenDumpExecuted){
-        debungInfo.add("&fDumping: &dSeenDump");
-        debungInfo.add("    &fCurrent Player: &d" + mc.getNetHandler().currentPlayer);
+        lines.add("&fDumping: SeenDump");
+        lines.add("    &fCurrent Player: " + mc.getNetHandler().currentPlayer);
       }
     }
 
-    for (int i = 0; i < debungInfo.size(); i++) {
-      mc.fontRendererObj.drawString(ChatHelper.fix(debungInfo.get(i)), 6, 18 + i * 10, 0);
-    }
+    int yOffset = 0;
+    for (String line : lines) {
+      String[] segments = line.split(":");
+      String segmentOne = segments[0];
+      String segmentTwo = segments[1];
+      mc.fontRendererObj.drawString(ChatHelper.fix(segmentOne), 6, 18 + yOffset * 10, 0);
 
+      int xOffset = 0;
+      for (char c : segmentTwo.toCharArray())
+      {
+        mc.fontRendererObj.drawString(String.valueOf(c), 6 + mc.fontRendererObj.getStringWidth(segmentOne) + xOffset, 18 + yOffset * 10, ColorHelper.getChroma(yOffset * -300, 1, 1).getRGB());
+        xOffset += mc.fontRendererObj.getCharWidth(c);
+      }
+      yOffset ++;
+    }
   }
 }

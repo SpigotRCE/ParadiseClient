@@ -33,7 +33,7 @@ public enum Paradise {
   private final ExploitManager exploitManager;
   private DiscordRichPresenceManager discordRichPresence;
 
-  public final String VER = "PUBLIC v1.8/1.0 dev";
+  public final String VER = "PUBLIC v1.8/1.2 dev";
 
   public Session orginalSession;
   public String PreUUID;
@@ -44,7 +44,7 @@ public enum Paradise {
 
   public String ipBungeeHack = "1.1.1.1";
   public String fakeNick = "NIGGERS ON TOP, NIGGA";
-  public String bungeeGuardField = "A bungeeguard token goes here!";
+  public String bungeeGuardField = "bungeeguard token here";
   public boolean autoIP = false;
 
   public final HashMap<Item, String> toolBinds = new HashMap<>();
