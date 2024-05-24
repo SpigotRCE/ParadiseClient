@@ -552,25 +552,16 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         GlStateManager.viewport(0, 0, this.displayWidth, this.displayHeight);
         this.effectRenderer = new EffectRenderer(this.theWorld, this.renderEngine);
         this.checkGLError("Post startup");
-
-        SaveLoad saveLoad1 = new SaveLoad("wallpaper.png");
-        saveLoad1.loadImage();
-
-        SaveLoad saveLoad2 = new SaveLoad("wallpaper.jpg");
-        saveLoad2.loadImage();
-
-        if(saveLoad1.item != null) {
-            DynamicTexture texture = new DynamicTexture((BufferedImage) saveLoad1.item);
-            ((BufferedImage) saveLoad1.item).getRGB(0, 0, ((BufferedImage) saveLoad1.item).getWidth(), ((BufferedImage) saveLoad1.item).getHeight(), texture.getTextureData(), 0, ((BufferedImage) saveLoad1.item).getWidth());
-            texture.updateDynamicTexture();
-            Paradise.INSTANCE.wallpaper = texture;
-        } else if(saveLoad2.item != null) {
-            DynamicTexture texture = new DynamicTexture((BufferedImage) saveLoad2.item);
-            ((BufferedImage) saveLoad2.item).getRGB(0, 0, ((BufferedImage) saveLoad2.item).getWidth(), ((BufferedImage) saveLoad2.item).getHeight(), texture.getTextureData(), 0, ((BufferedImage) saveLoad2.item).getWidth());
-            texture.updateDynamicTexture();
-            Paradise.INSTANCE.wallpaper = texture;
-        }
-
+//
+//        SaveLoad saveLoad1 = new SaveLoad("wallpaper.png");
+//        saveLoad1.loadImage();
+//
+//        if(saveLoad1.item != null) {
+//            DynamicTexture texture = new DynamicTexture((BufferedImage) saveLoad1.item);
+//            ((BufferedImage) saveLoad1.item).getRGB(0, 0, ((BufferedImage) saveLoad1.item).getWidth(), ((BufferedImage) saveLoad1.item).getHeight(), texture.getTextureData(), 0, ((BufferedImage) saveLoad1.item).getWidth());
+//            texture.updateDynamicTexture();
+//            Paradise.INSTANCE.wallpaper = texture;
+//        }
 
 //        this.ingameGUI = new GuiIngame(this);
         this.ingameGUI = new GuiInGameHook(this);

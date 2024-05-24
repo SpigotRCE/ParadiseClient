@@ -16,7 +16,7 @@ public class SaveLoad {
 	public final File dataFile;
 
 	public Object item;
-	   
+
 	public SaveLoad(String configFileName, Object object) {
 		this.item = object;
 		this.configFileName = configFileName;
@@ -105,7 +105,7 @@ public class SaveLoad {
 			printWriter.close();
 		}
 	}
-	
+
 	public void loadImage() {
 		BufferedImage img = null;
 		try {

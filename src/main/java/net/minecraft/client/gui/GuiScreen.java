@@ -685,7 +685,7 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
 
         GlStateManager.pushMatrix();
         if(Paradise.INSTANCE.wallpaper != null) {
-            DrawHelper.draw2DImage(Paradise.INSTANCE.wallpaper, 0, 0, this.width, this.height, new Color(0, 0, 0));
+            DrawHelper.draw2DImage(Paradise.INSTANCE.wallpaper, 0, 0, this.width, this.height);
         } else {
             Gui.drawRect(0,0,width,height, new Color(23,23,23).getRGB());
         }

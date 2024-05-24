@@ -3,6 +3,7 @@ package tk.milkthedev.paradise;
 import java.io.File;
 import java.util.HashMap;
 
+import net.minecraft.util.ResourceLocation;
 import tk.milkthedev.paradise.command.CommandManager;
 import tk.milkthedev.paradise.command.impl.*;
 import tk.milkthedev.paradise.exploit.ExploitManager;
@@ -33,7 +34,7 @@ public enum Paradise {
   private final ExploitManager exploitManager;
   private DiscordRichPresenceManager discordRichPresence;
 
-  public final String VER = "PUBLIC v1.8/1.4 dev";
+  public final String VER = "PUBLIC v1.8/1.5 dev";
 
   public Session orginalSession;
   public String PreUUID;
@@ -50,7 +51,7 @@ public enum Paradise {
   public final HashMap<Item, String> toolBinds = new HashMap<>();
   public final HashMap<Integer, String> keyToolBinds = new HashMap<>();
 
-  public DynamicTexture wallpaper;
+  public ResourceLocation wallpaper = new ResourceLocation("Paradise/wallpaper/wallpaper.png");
 
 
   Paradise() {

@@ -97,7 +97,8 @@ public class DrawHelper extends GuiScreen {
     Gui.drawModalRectWithCustomSizedTexture(x, y, 0.0F, 0.0F, width, height, width, height);
   }
 
-  public static void draw2DImage(ResourceLocation image, float x, float y, float width, float height, Color c) {
+  public static void draw2DImage(ResourceLocation image, float x, float y, float width, float height) {
+    Color c = new Color(255, 255, 255); // to if in future contrast support
     glDisable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glDepthMask(false);
