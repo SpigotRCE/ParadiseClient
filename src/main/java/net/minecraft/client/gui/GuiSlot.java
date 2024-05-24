@@ -232,11 +232,6 @@ public abstract class GuiSlot
             this.drawBackground();
 
             GlStateManager.pushMatrix();
-            if(Paradise.INSTANCE.wallpaper != null) {
-                DrawHelper.draw2DImage(Paradise.INSTANCE.wallpaper, 0, 0, width, height, new Color(0, 0, 0));
-            } else {
-                Gui.drawRect(0,0,width, height, new Color(23,23,23).getRGB());
-            }
             int i = this.getScrollBarX();
             int j = i + 6;
             this.bindAmountScrolled();

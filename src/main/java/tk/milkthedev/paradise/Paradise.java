@@ -33,7 +33,7 @@ public enum Paradise {
   private final ExploitManager exploitManager;
   private DiscordRichPresenceManager discordRichPresence;
 
-  public final String VER = "PUBLIC v1.8/1.2 dev";
+  public final String VER = "PUBLIC v1.8/1.4 dev";
 
   public Session orginalSession;
   public String PreUUID;
@@ -95,7 +95,6 @@ public enum Paradise {
         new SeenDumpCommand(),
         new GMCCommand(),
         new ForceOPCommand(),
-        new TabCompleteCrash(),
         new ConnectCommand()
             );
 
