@@ -1,1 +1,1 @@
-An oppen source fork of PuppyClient
+An open source fork of PuppyClient
