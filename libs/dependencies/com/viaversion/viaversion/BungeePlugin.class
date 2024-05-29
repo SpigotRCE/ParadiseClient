@@ -1,0 +1,80 @@
+Êþº¾   4± &com/viaversion/viaversion/BungeePlugin   ·Lnet/md_5/bungee/api/plugin/Plugin;Lcom/viaversion/viaversion/api/platform/ViaServerProxyPlatform<Lnet/md_5/bungee/api/connection/ProxiedPlayer;>;Lnet/md_5/bungee/api/plugin/Listener; !net/md_5/bungee/api/plugin/Plugin   =com/viaversion/viaversion/api/platform/ViaServerProxyPlatform   #net/md_5/bungee/api/plugin/Listener   BungeePlugin.java Gcom/viaversion/viaversion/unsupported/UnsupportedServerSoftware$Builder   ?com/viaversion/viaversion/unsupported/UnsupportedServerSoftware  
+  Builder Fcom/viaversion/viaversion/unsupported/UnsupportedServerSoftware$Reason   Reason :com/viaversion/viaversion/ViaManagerImpl$ViaManagerBuilder   (com/viaversion/viaversion/ViaManagerImpl   ViaManagerBuilder protocolDetectorService BLcom/viaversion/viaversion/bungee/service/ProtocolDetectorService; api 8Lcom/viaversion/viaversion/bungee/platform/BungeeViaAPI; config ;Lcom/viaversion/viaversion/bungee/platform/BungeeViaConfig; <init> ()V  
+    @com/viaversion/viaversion/bungee/service/ProtocolDetectorService  "
+ #    	  % this (Lcom/viaversion/viaversion/BungeePlugin; onLoad java/lang/NoSuchFieldException  * *net/md_5/bungee/protocol/ProtocolConstants  , MINECRAFT_1_20_5 . java/lang/Class  0 getField -(Ljava/lang/String;)Ljava/lang/reflect/Field; 2 3
+ 1 4 	getLogger ()Ljava/util/logging/Logger; 6 7
+  8 	      / \ : java/util/logging/Logger  <  warning (Ljava/lang/String;)V > ?
+ = @ 
+     /   \ B     /  |  \ D +   /   |   \         BUNGEECORD IS OUTDATED F 3  /         \   VIAVERSION MAY NOT WORK AS INTENDED H  /     o     \ J /_____________\ L ¹ViaVersion does not work as intended across many different server versions, especially the more recent ones. Consider moving Via plugins to your backend server or switching to Velocity. N 6com/viaversion/viaversion/bungee/platform/BungeeViaAPI  P
+ Q    	  S 9com/viaversion/viaversion/bungee/platform/BungeeViaConfig  U 
+getDataFolder ()Ljava/io/File; W X
+  Y (Ljava/io/File;)V  [
+ V \  	  ^ >com/viaversion/viaversion/bungee/commands/BungeeCommandHandler  `
+ a   net/md_5/bungee/api/ProxyServer  c getInstance #()Lnet/md_5/bungee/api/ProxyServer; e f
+ d g getPluginManager ,()Lnet/md_5/bungee/api/plugin/PluginManager; i j
+ d k 7com/viaversion/viaversion/bungee/commands/BungeeCommand  m C(Lcom/viaversion/viaversion/bungee/commands/BungeeCommandHandler;)V  o
+ n p (net/md_5/bungee/api/plugin/PluginManager  r registerCommand J(Lnet/md_5/bungee/api/plugin/Plugin;Lnet/md_5/bungee/api/plugin/Command;)V t u
+ s v  builder >()Lcom/viaversion/viaversion/ViaManagerImpl$ViaManagerBuilder; x y
+  z platform r(Lcom/viaversion/viaversion/api/platform/ViaPlatform;)Lcom/viaversion/viaversion/ViaManagerImpl$ViaManagerBuilder; | }
+  ~ ;com/viaversion/viaversion/bungee/platform/BungeeViaInjector  €
+    injector r(Lcom/viaversion/viaversion/api/platform/ViaInjector;)Lcom/viaversion/viaversion/ViaManagerImpl$ViaManagerBuilder; ƒ „
+  … 9com/viaversion/viaversion/bungee/platform/BungeeViaLoader  ‡ +(Lcom/viaversion/viaversion/BungeePlugin;)V  ‰
+ ˆ Š loader x(Lcom/viaversion/viaversion/api/platform/ViaPlatformLoader;)Lcom/viaversion/viaversion/ViaManagerImpl$ViaManagerBuilder; Œ 
+  Ž commandHandler t(Lcom/viaversion/viaversion/commands/ViaCommandHandler;)Lcom/viaversion/viaversion/ViaManagerImpl$ViaManagerBuilder;  ‘
+  ’ build ,()Lcom/viaversion/viaversion/ViaManagerImpl; ” •
+  – !com/viaversion/viaversion/api/Via  ˜ init -(Lcom/viaversion/viaversion/api/ViaManager;)V š ›
+ ™ œ reload ž 
+ V Ÿ e  Ljava/lang/NoSuchFieldException; @Lcom/viaversion/viaversion/bungee/commands/BungeeCommandHandler; onEnable 
+getManager ,()Lcom/viaversion/viaversion/api/ViaManager; ¥ ¦
+ ™ § š 
+  © onServerLoaded « 
+  ¬  manager *Lcom/viaversion/viaversion/ViaManagerImpl; getPlatformName ()Ljava/lang/String; getProxy ² f
+  ³  getName µ ±
+ d ¶ getPlatformVersion 
+getVersion ¹ ±
+ d º  isProxy ()Z getPluginVersion getDescription 0()Lnet/md_5/bungee/api/plugin/PluginDescription; ¿ À
+  Á ,net/md_5/bungee/api/plugin/PluginDescription  Ã
+ Ä º runAsync K(Ljava/lang/Runnable;)Lcom/viaversion/viaversion/api/platform/PlatformTask; 7com/viaversion/viaversion/bungee/platform/BungeeViaTask  È getScheduler /()Lnet/md_5/bungee/api/scheduler/TaskScheduler; Ê Ë
+ d Ì +net/md_5/bungee/api/scheduler/TaskScheduler  Î f(Lnet/md_5/bungee/api/plugin/Plugin;Ljava/lang/Runnable;)Lnet/md_5/bungee/api/scheduler/ScheduledTask; Æ Ð Ï Ñ 0(Lnet/md_5/bungee/api/scheduler/ScheduledTask;)V  Ó
+ É Ô runnable Ljava/lang/Runnable; runRepeatingAsync L(Ljava/lang/Runnable;J)Lcom/viaversion/viaversion/api/platform/PlatformTask;       2 java/util/concurrent/TimeUnit  Ü MILLISECONDS Ljava/util/concurrent/TimeUnit; Þ ß	 Ý à schedule ‡(Lnet/md_5/bungee/api/plugin/Plugin;Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lnet/md_5/bungee/api/scheduler/ScheduledTask; â ã Ï ä ticks J  runSync Æ Ç
+  é †(Lnet/md_5/bungee/api/plugin/Plugin;Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lnet/md_5/bungee/api/scheduler/ScheduledTask; â ë Ï ì delay runRepeatingSync Ø Ù
+  ð period getOnlinePlayers ;()[Lcom/viaversion/viaversion/api/command/ViaCommandSender; 
+getPlayers ()Ljava/util/Collection; õ ö
+ d ÷ java/util/Collection  ù size ()I û ü ú ý 6com/viaversion/viaversion/api/command/ViaCommandSender  ÿ iterator ()Ljava/util/Iterator; ú 9[Lcom/viaversion/viaversion/api/command/ViaCommandSender;  java/util/Iterator    hasNext	 ½
+ next ()Ljava/lang/Object;
+ ,net/md_5/bungee/api/connection/ProxiedPlayer  =com/viaversion/viaversion/bungee/commands/BungeeCommandSender  &(Lnet/md_5/bungee/api/CommandSender;)V 
+ player .Lnet/md_5/bungee/api/connection/ProxiedPlayer;  players FLjava/util/Collection<Lnet/md_5/bungee/api/connection/ProxiedPlayer;>; Ljava/util/Collection; array i I sendMessage %(Ljava/util/UUID;Ljava/lang/String;)V 	getPlayer @(Ljava/util/UUID;)Lnet/md_5/bungee/api/connection/ProxiedPlayer;!"
+ d# ?% uuid Ljava/util/UUID;  message Ljava/lang/String; 
+kickPlayer %(Ljava/util/UUID;Ljava/lang/String;)Z 
+disconnect- ?. isPluginEnabled getApi (()Lcom/viaversion/viaversion/api/ViaAPI; X()Lcom/viaversion/viaversion/api/ViaAPI<Lnet/md_5/bungee/api/connection/ProxiedPlayer;>;  getConf =()Lcom/viaversion/viaversion/bungee/platform/BungeeViaConfig; onReload  getDump 2()Lcom/viaversion/viaversion/libs/gson/JsonObject; .com/viaversion/viaversion/libs/gson/JsonObject 9
+:   java/util/ArrayList <
+=   
+getPlugins? ö
+ s@ java/util/List B )com/viaversion/viaversion/dump/PluginInfo D
+  Á
+ Ä ¶  getMainH ±
+ ÄI 	getAuthorK ±
+ ÄL java/util/Collections N 
+singletonList $(Ljava/lang/Object;)Ljava/util/List;PQ
+OR J(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V T
+EU add (Ljava/lang/Object;)ZWXCY  plugins[ 'com/viaversion/viaversion/util/GsonUtil ]  getGson ,()Lcom/viaversion/viaversion/libs/gson/Gson;_`
+^a (com/viaversion/viaversion/libs/gson/Gson c 
+toJsonTree E(Ljava/lang/Object;)Lcom/viaversion/viaversion/libs/gson/JsonElement;ef
+dg F(Ljava/lang/String;Lcom/viaversion/viaversion/libs/gson/JsonElement;)VWi
+:j  serversl detectedProtocolVersions A()Lcom/viaversion/viaversion/libs/fastutil/objects/Object2IntMap;no
+ #p p #Lnet/md_5/bungee/api/plugin/Plugin; platformSpecific 0Lcom/viaversion/viaversion/libs/gson/JsonObject; =Ljava/util/List<Lcom/viaversion/viaversion/dump/PluginInfo;>; Ljava/util/List; getUnsupportedSoftwareClasses V()Ljava/util/Collection<Lcom/viaversion/viaversion/api/platform/UnsupportedSoftware;>;x ö  z (Ljava/util/Collection;)V |
+=}
+    	FlameCord€ name ](Ljava/lang/String;)Lcom/viaversion/viaversion/unsupported/UnsupportedServerSoftware$Builder;‚ƒ
+ „ "dev._2lstudios.flamecord.FlameCord† addClassNameˆƒ
+ ‰ ¤You are using proxy software that intentionally breaks ViaVersion. Please use another proxy software or move ViaVersion to each backend server instead of the proxy.‹ reasonƒ
+ Ž >()Lcom/viaversion/viaversion/api/platform/UnsupportedSoftware; ”
+ ‘ úY 'com/google/common/collect/ImmutableList ” copyOf A(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;–—
+•˜ list TLjava/util/Collection<Lcom/viaversion/viaversion/api/platform/UnsupportedSoftware;>; 	hasPlugin (Ljava/lang/String;)Z 	getPlugin 7(Ljava/lang/String;)Lnet/md_5/bungee/api/plugin/Plugin;žŸ
+ s  D()Lcom/viaversion/viaversion/bungee/service/ProtocolDetectorService; B()Lcom/viaversion/viaversion/api/platform/ProtocolDetectorService; ¢
+ ¤ @()Lcom/viaversion/viaversion/api/configuration/ViaVersionConfig;45
+ § Code LineNumberTable LocalVariableTable 
+StackMapTable LocalVariableTypeTable 	Signature InnerClasses 
+SourceFile !      	                     ©   >     *· !*» #Y· $µ &±   ª   
+    4  5«        ' (    )  ©  e     ¶-/¶ 5W§ CL*¶ 9;¶ A*¶ 9C¶ A*¶ 9E¶ A*¶ 9G¶ A*¶ 9I¶ A*¶ 9K¶ A*¶ 9M¶ A*¶ 9O¶ A*» QY· Rµ T*» VY*¶ Z· ]µ _» aY· bL¸ h¶ l*» nY+· q¶ w¸ {*¶ » Y· ‚¶ †» ˆY*· ‹¶ +¶ “¶ —¸ *´ _¶  ±      + ¬     K  +?ª   b    <  E  =  >  ?  @ ' A 0 B 9 C B D K G T J _ K n L v M ˆ P Œ Q – R ¡ S ¥ T ¨ U « P ® W µ X«       ? ¡ ¢    ¶ ' (   v @  £   ¤  ©   P     ¸ ¨À L+¶ ª+¶ ­±   ª       \   ]  ^  _«        ' (     	 ® ¯   ° ± ©   2     *¶ ´¶ ·°   ª       c«        ' (    ¸ ± ©   2     *¶ ´¶ »°   ª       h«        ' (    ¼ ½ ©   ,     ¬   ª       m«        ' (    ¾ ± ©   2     *¶ Â¶ Å°   ª       r«        ' (    Æ Ç ©   J     » ÉY*¶ ´¶ Í*+¹ Ò · Õ°   ª       w«        ' (      Ö ×   Ø Ù ©   ]     » ÉY*¶ ´¶ Í*+	  Úi² á¹ å · Õ°   ª       |«         ' (      Ö ×     æ ç   è Ç ©   :     *+¶ ê°   ª       «        ' (      Ö ×   è Ù ©   \ 	    » ÉY*¶ ´¶ Í*+  Úi² á¹ í · Õ°   ª       †«         ' (      Ö ×     î ç   ï Ù ©   E      *+ ¶ ñ°   ª       ‹«          ' (       Ö ×      ò ç   ó ô ©   á     F*¶ ´¶ øL+¹ þ ½ M>+¹ :¹ ™ !¹ À:,„»Y·S§ÿÛ,°   ¬    ÿ      ú    ú 'ª          ‘  ’  “ 2 ” A • D –«   4  2     F ' (    >   4   2 ­      >    ©   Q     *¶ ´+¶$,¹& ±   ª   
+    ›  œ«         ' (     '(    )*  +, ©   ~     *¶ ´+¶$N-Æ -,¹/ ¬¬   ¬    ü  ª         	 ¡ 
+ ¢  £  ¥«   *     ' (     '(    )*  	   0 ½ ©   ,     ¬   ª       ª«        ' (   12 ©   /     *´ T°   ª       ¯«        ' (  ®   3 45 ©   /     *´ _°   ª       ´«        ' (   6  ©   +      ±   ª       º«        ' (   78 ©  )     Œ»:Y·;L»=Y·>M¸ h¶ l¶A¹ N-¹ ™ C-¹ À :,»EY¶F¶G¶F¶ Å¶F¶J¶F¶M¸S·V¹Z W§ÿº+\¸b,¶h¶k+m¸b*´ &¶q¶h¶k+°   ¬    þ  : C ú Hª   2    ¾  À  Á 3 Â ; Ä C Å K Æ S Ç _ Â h Ê v Ë Š Ì«   *  3 2rs    Œ ' (    „tu   |[w ­      |[v  x ö ©   –     4»=Y*·{·~L+» Y·¶…‡¶ŠŒ¶¶’¹“ W+¸™°   ª   "    Ñ  Ò  Ó  Ô # Õ & Ö ) Ò / ×«       4 ' (    (š ­      (š› ®   y œ ©   S     *¶ ´¶ l+¶¡Æ  § ¬   ¬    @ª       Ü«        ' (     ‚*   ¢ ©   /     *´ &°   ª       á«        ' (  A £ ©   /     *¶¥°   ª       4«        ' (  A4¦ ©   /     *¶¨°   ª       4«        ' (   ¯                ®    °    
