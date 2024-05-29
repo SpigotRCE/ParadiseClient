@@ -52,7 +52,7 @@ import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldInfo;
-import viamcp.utils.FixedSoundEngine;
+import de.florianmichael.viamcp.fixes.FixedSoundEngine;
 
 public abstract class World implements IBlockAccess
 {

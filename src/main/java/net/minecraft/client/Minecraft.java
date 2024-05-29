@@ -181,7 +181,7 @@ import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
 import tk.milkthedev.paradise.Paradise;
 import tk.milkthedev.paradise.hook.GuiInGameHook;
-import viamcp.utils.AttackOrder;
+import de.florianmichael.viamcp.fixes.AttackOrder;
 
 public class Minecraft implements IThreadListener, IPlayerUsage
 {

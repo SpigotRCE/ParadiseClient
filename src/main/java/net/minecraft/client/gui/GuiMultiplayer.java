@@ -18,7 +18,7 @@ import net.minecraft.client.resources.I18n;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.input.Keyboard;
-import viamcp.ViaMCP;
+import de.florianmichael.viamcp.ViaMCP;
 
 public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback
 {
@@ -113,8 +113,8 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback
         this.buttonList.add(new GuiButton(8, this.width / 2 + 4, this.height - 28, 70, 20, I18n.format("selectServer.refresh")));
         this.buttonList.add(new GuiButton(0, this.width / 2 + 4 + 76, this.height - 28, 75, 20, I18n.format("gui.cancel")));
 
-        if(ViaMCP.ASYNC_EXEC != null) {
-            this.buttonList.add(ViaMCP.getInstance().asyncSlider);
+        if(ViaMCP.INSTANCE.getAsyncVersionSlider() != null) {
+            this.buttonList.add(ViaMCP.INSTANCE.getAsyncVersionSlider());
         }
 
         this.buttonList.add(new GuiButton(9, this.width / 2 - 222, this.height - 52, 70, 20, BungeeSpoofBtn()));

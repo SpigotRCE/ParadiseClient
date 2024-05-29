@@ -3,9 +3,10 @@
     <output-path>$USER_HOME$/AppData/Roaming/.minecraft/versions/ParadiseClient</output-path>
     <root id="archive" name="ParadiseClient.jar">
       <element id="module-output" name="ParadiseClient" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/viaversion/viaversion/4.8.1-SNAPSHOT/viaversion-4.8.1-20231003.105714-18.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/viaversion/viarewind-all/3.0.0-SNAPSHOT/viarewind-all-3.0.0-20230910.202812-14.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/viaversion/viabackwards/4.8.1-SNAPSHOT/viabackwards-4.8.1-20230928.012212-7.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/ViaMCP/libraries/snakeyaml-2.2.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/ViaMCP/libraries/ViaBackwards-4.10.1-SNAPSHOT.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/ViaMCP/libraries/ViaRewind-3.1.1-SNAPSHOT.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/ViaMCP/libraries/ViaVersion-4.10.1-SNAPSHOT.jar" />
     </root>
   </artifact>
 </component>

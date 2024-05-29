@@ -24,7 +24,7 @@ import tk.milkthedev.paradise.exploit.impl.other.FaweExploit;
 import tk.milkthedev.paradise.exploit.impl.other.MultiverseExploit;
 import tk.milkthedev.paradise.exploit.impl.other.PEXExploit;
 import tk.milkthedev.paradise.exploit.impl.other.SpamExploit;
-import viamcp.ViaMCP;
+import de.florianmichael.viamcp.ViaMCP;
 
 public enum Paradise {
   INSTANCE;
@@ -34,7 +34,7 @@ public enum Paradise {
   private final ExploitManager exploitManager;
   private DiscordRichPresenceManager discordRichPresence;
 
-  public final String VER = "PUBLIC v1.8/1.5 dev";
+  public final String VER = "PUBLIC v1.9";
 
   public Session orginalSession;
   public String PreUUID;
@@ -42,10 +42,9 @@ public enum Paradise {
   public boolean premiumUUID;
   public boolean sessionPremium;
 
-
   public String ipBungeeHack = "1.1.1.1";
-  public String fakeNick = "NIGGERS ON TOP, NIGGA";
-  public String bungeeGuardField = "bungeeguard token here";
+  public String fakeNick = "Input Fake Nick";
+  public String bungeeGuardField = "BungeeGuard token here";
   public boolean autoIP = false;
 
   public final HashMap<Item, String> toolBinds = new HashMap<>();
@@ -53,17 +52,14 @@ public enum Paradise {
 
   public ResourceLocation wallpaper = new ResourceLocation("Paradise/wallpaper/wallpaper.png");
 
-
   Paradise() {
     System.setProperty("com.sun.jndi.ldap.object.trustURLCodebase", "false");
-    try
-    {
-      ViaMCP.getInstance().start();
-      ViaMCP.getInstance().setVersion(47);
-      ViaMCP.getInstance().initAsyncSlider(5, 5, 100, 20);
-    }
-    catch (Exception e)
-    {
+    try {
+      ViaMCP.create();
+      // In case you want a version slider like in the Minecraft options, you can use this code here, please choose one of those:
+      ViaMCP.INSTANCE.initAsyncSlider(); // For top left aligned slider
+      // ViaMCP.INSTANCE.initAsyncSlider(x, y, width (min. 110), height (recommended 20)); // For custom position and size slider
+    } catch (Exception e) {
       e.printStackTrace();
     }
     // Removed for sometime
@@ -72,61 +68,61 @@ public enum Paradise {
     } catch (Exception ignored) {}
 
     commandManager = new CommandManager(
-        new ExploitCommand(),
-        new HelpCommand(),
-        new OnlineCommand(),
-        new FakeGamemodeCommand(),
-        new BindCommand(),
-        new PluginsCommand(),
-        new RainbowSpamCommand(),
-        new StopRainbowSpamCommand(),
-        new ScreenshotCommand(),
-        new ToggleSprintCommand(),
-        new BindButtonCommand(),
-        new DiscordSRVCommand(),
-        new StopDiscordSRVCommand(),
-        new TestCommand(),
-        new MotionBlurCommand(),
-        new VClipCommand(),
-        new BanAllCommand(),
-        new FetchAllCommand(),
-        new FakeBroadcast(),
-        new CopyBroadcastCommand(),
-        new BungeeDumpCommand(),
-        new SeenDumpCommand(),
-        new GMCCommand(),
-        new ForceOPCommand(),
-        new ConnectCommand()
-            );
-
-    exploitManager = new ExploitManager(
-        new AnvilExploit(),
-        new AttackExploit(),
-        new BookExploit(),
-        new InvalidItem(),
-        new SpamExploit(),
-        new CommandBlockExploit(),
-        new FaweExploit(),
-        new ExploitFixer2Exploit(),
-        new ExploitFixerExploit(),
-        new OnePacketExploit(),
-        new MultiverseExploit(),
-        new PEXExploit(),
-        new ChannelExploit(),
-        new LuckpermsExploit()
+            new ExploitCommand(),
+            new HelpCommand(),
+            new OnlineCommand(),
+            new FakeGamemodeCommand(),
+            new BindCommand(),
+            new PluginsCommand(),
+            new RainbowSpamCommand(),
+            new StopRainbowSpamCommand(),
+            new ScreenshotCommand(),
+            new ToggleSprintCommand(),
+            new BindButtonCommand(),
+            new DiscordSRVCommand(),
+            new StopDiscordSRVCommand(),
+            new TestCommand(),
+            new MotionBlurCommand(),
+            new VClipCommand(),
+            new BanAllCommand(),
+            new FetchAllCommand(),
+            new FakeBroadcast(),
+            new CopyBroadcastCommand(),
+            new BungeeDumpCommand(),
+            new SeenDumpCommand(),
+            new GMCCommand(),
+            new ForceOPCommand(),
+            new ConnectCommand()
     );
 
-    if(orginalSession == null) {
+    exploitManager = new ExploitManager(
+            new AnvilExploit(),
+            new AttackExploit(),
+            new BookExploit(),
+            new InvalidItem(),
+            new SpamExploit(),
+            new CommandBlockExploit(),
+            new FaweExploit(),
+            new ExploitFixer2Exploit(),
+            new ExploitFixerExploit(),
+            new OnePacketExploit(),
+            new MultiverseExploit(),
+            new PEXExploit(),
+            new ChannelExploit(),
+            new LuckpermsExploit()
+    );
+
+    if (orginalSession == null) {
       orginalSession = Minecraft.getMinecraft().getSession();
       fakeNick = orginalSession.getUsername();
     }
 
     File dir = new File(Minecraft.getMinecraft().mcDataDir, "Paradise");
     File configDir = new File(dir, "SaveableItems");
-    if(!dir.exists()) {
+    if (!dir.exists()) {
       dir.mkdir();
     }
-    if(!configDir.exists()) {
+    if (!configDir.exists()) {
       configDir.mkdir();
     }
     Runtime.getRuntime().addShutdownHook(new Thread(this::shutDown));

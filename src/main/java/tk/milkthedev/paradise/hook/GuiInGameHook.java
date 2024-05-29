@@ -1,5 +1,6 @@
 package tk.milkthedev.paradise.hook;
 
+import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import tk.milkthedev.paradise.Paradise;
 import tk.milkthedev.paradise.command.impl.ScreenshotCommand;
 import tk.milkthedev.paradise.command.impl.TestCommand;
@@ -11,7 +12,7 @@ import net.minecraft.client.gui.GuiIngame;
 import tk.milkthedev.paradise.helper.ChatHelper;
 import tk.milkthedev.paradise.helper.ColorHelper;
 import tk.milkthedev.paradise.helper.TimeHelper;
-import viamcp.ViaMCP;
+import de.florianmichael.viamcp.ViaMCP;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,8 +74,12 @@ public class GuiInGameHook extends GuiIngame {
       }
 
       lines.add(ChatHelper.fix("&fFPS: " + Minecraft.debugFPS));
-      lines.add(ChatHelper.fix("&fClient Protocol: " + ViaMCP.getInstance().getVersion()));
-      lines.add(ChatHelper.fix("&fClient Version: " + ProtocolVersion.getProtocol(ViaMCP.getInstance().getVersion()).getName()));
+
+      ViaLoadingBase viaLoadingBase = ViaLoadingBase.getInstance();
+      ProtocolVersion protocolVersion = viaLoadingBase.getTargetVersion();
+
+      lines.add(ChatHelper.fix("&fClient Protocol: " + protocolVersion.getVersion()));
+      lines.add(ChatHelper.fix("&fClient Version: " + protocolVersion.getName()));
       lines.add(ChatHelper.fix("&fNick: " + mc.thePlayer.getName()));
 
       if (Paradise.INSTANCE.bungeeHack) {
