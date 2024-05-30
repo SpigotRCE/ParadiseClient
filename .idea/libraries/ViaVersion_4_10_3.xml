@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ViaVersion-4.10.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/ViaVersion-4.10.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

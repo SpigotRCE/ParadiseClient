@@ -1,12 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="ParadiseClient:jar">
-    <output-path>$USER_HOME$/AppData/Roaming/.minecraft/versions/ParadiseClient</output-path>
+    <output-path>$USER_HOME$/AppData/Roaming/.minecraft/versions/ParadiseClient/</output-path>
     <root id="archive" name="ParadiseClient.jar">
       <element id="module-output" name="ParadiseClient" />
-      <element id="file-copy" path="$PROJECT_DIR$/ViaMCP/libraries/snakeyaml-2.2.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/ViaMCP/libraries/ViaBackwards-4.10.1-SNAPSHOT.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/ViaMCP/libraries/ViaRewind-3.1.1-SNAPSHOT.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/ViaMCP/libraries/ViaVersion-4.10.1-SNAPSHOT.jar" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/ViaVersion-4.10.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/snakeyaml-2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/ViaRewind-4.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/ViaBackwards-4.10.3-SNAPSHOT.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
