@@ -4,6 +4,7 @@ package net.minecraft.network;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import de.florianmichael.vialoadingbase.ViaLoadingBase;
+import de.florianmichael.vialoadingbase.netty.event.CompressionReorderEvent;
 import de.florianmichael.viamcp.MCPVLBPipeline;
 import org.apache.logging.log4j.MarkerManager;
 import org.apache.logging.log4j.LogManager;
@@ -336,18 +337,15 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         if (treshold >= 0) {
             if (this.channel.pipeline().get("decompress") instanceof NettyCompressionDecoder) {
                 ((NettyCompressionDecoder)this.channel.pipeline().get("decompress")).setCompressionTreshold(treshold);
-            }
-            else {
+            } else {
                 this.channel.pipeline().addBefore("decoder", "decompress", new NettyCompressionDecoder(treshold));
             }
             if (this.channel.pipeline().get("compress") instanceof NettyCompressionEncoder) {
-                ((NettyCompressionEncoder)this.channel.pipeline().get("decompress")).setCompressionTreshold(treshold);
-            }
-            else {
+                ((NettyCompressionEncoder)this.channel.pipeline().get("compress")).setCompressionTreshold(treshold);
+            } else {
                 this.channel.pipeline().addBefore("encoder", "compress", new NettyCompressionEncoder(treshold));
             }
-        }
-        else {
+        } else {
             if (this.channel.pipeline().get("decompress") instanceof NettyCompressionDecoder) {
                 this.channel.pipeline().remove("decompress");
             }
@@ -355,7 +353,10 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
                 this.channel.pipeline().remove("compress");
             }
         }
+
+        this.channel.pipeline().fireUserEventTriggered(new CompressionReorderEvent());
     }
+
 
     public void checkDisconnected() {
         if (this.channel != null && !this.channel.isOpen()) {
